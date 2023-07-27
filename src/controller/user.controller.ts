@@ -48,6 +48,14 @@ const userDelete = (req: Request, res: Response): Response => {
   return res.sendStatus(204);
 };
 
-const usersControler = {};
+const usersControler = {
+  userLogin,
+  userCreation,
+  userRead,
+  userUpdate,
+  userDelete,
+  userReadAll,
+  userReadProfile,
+};
 
 export default usersControler;
