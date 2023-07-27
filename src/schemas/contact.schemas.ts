@@ -16,6 +16,8 @@ const request = contact.omit({
   user: true,
 });
 
+const contactResponse = contact.omit({ user: true });
+
 const requestPartial = request.partial();
 
 const responseArray = contact.array();
@@ -25,6 +27,7 @@ const contactSchemas = {
   request,
   requestPartial,
   responseArray,
+  contactResponse,
 };
 
 export default contactSchemas;
