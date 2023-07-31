@@ -1,5 +1,6 @@
 import { Contact } from "../../entities";
 import {
+  TContact,
   TContactResponse,
   TContatcUpdate,
 } from "../../interfaces/contact.interfaces";
@@ -10,7 +11,11 @@ const updateContact = async (
   contactId: number,
   contactData: TContatcUpdate
 ): Promise<TContactResponse> => {
-  const contact: Contact | null = await repositories.contact.findOneBy({
+  console.log("###########################");
+  console.log(contactData);
+  console.log("###########################");
+
+  const contact = await repositories.contact.findOneBy({
     id: contactId,
   });
 

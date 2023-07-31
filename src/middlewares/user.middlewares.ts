@@ -53,8 +53,6 @@ const verifyEmailExists = async (
       email: email,
     });
 
-    if (user!.id == res.locals.userId) return next();
-
     if (user) return res.status(409).json({ message: "Email already in use" });
   }
 
