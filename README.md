@@ -33,6 +33,13 @@
 
 POST "/users": Cria um novo usuário.
 
+deve conter estes campos
+
+- "completName": string,
+- "email": string,
+- "contactPhone": string,
+- "password": string
+
 POST "/users/login": Realiza o login do usuário e retorna um token de acesso com validade de 24 horas.
 
 PATCH "/users": Edita o perfil do usuário logado.
