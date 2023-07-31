@@ -35,13 +35,11 @@ const verifyEmailExistsRegister = async (
       email: email,
     });
 
-
     if (user) return res.status(409).json({ message: "Email already in use" });
   }
-  
+
   next();
 };
-
 
 const verifyEmailExists = async (
   req: Request,
@@ -59,7 +57,7 @@ const verifyEmailExists = async (
 
     if (user) return res.status(409).json({ message: "Email already in use" });
   }
-  
+
   next();
 };
 
@@ -90,7 +88,6 @@ const userMiddlewares = {
   verifyEmailExistsRegister,
   verifyUserIdExists,
   verifyToken,
-
 };
 
 export default userMiddlewares;

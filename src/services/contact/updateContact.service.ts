@@ -1,7 +1,6 @@
 import { Contact } from "../../entities";
 import {
-  TContact,
-  TContactRequest,
+  TContactResponse,
   TContatcUpdate,
 } from "../../interfaces/contact.interfaces";
 
@@ -10,7 +9,7 @@ import repositories from "../../utils/repositories";
 const updateContact = async (
   contactId: number,
   contactData: TContatcUpdate
-): Promise<TContact> => {
+): Promise<TContactResponse> => {
   const contact: Contact | null = await repositories.contact.findOneBy({
     id: contactId,
   });
