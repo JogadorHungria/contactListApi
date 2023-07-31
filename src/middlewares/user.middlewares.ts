@@ -46,13 +46,16 @@ const verifyEmailExists = async (
   res: Response,
   next: NextFunction
 ): Promise<void | Response> => {
-  const email = req.body.email;
+  const { email } = req.body;
 
   if (email) {
     const user = await repositories.user.findOneBy({
       email: email,
     });
 
+    if (user && user!.id == res.locals.userId) {
+      return next();
+    }
     if (user) return res.status(409).json({ message: "Email already in use" });
   }
 
