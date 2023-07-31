@@ -10,6 +10,8 @@ const userLogin = async (req: Request, res: Response): Promise<Response> => {
 
 const userCreation = async (req: Request, res: Response): Promise<Response> => {
   const body = req.body;
+
+  
   const newUser: TUserResponse = await userServices.createUser(body);
   return res.json(newUser).status(201);
 };

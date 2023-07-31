@@ -16,7 +16,7 @@ users.post(
 users.post(
   "",
   validateSchema(userSchemas.request),
-  userMiddlewares.verifyEmailExists,
+  userMiddlewares.verifyEmailExistsRegister,
   usersControler.userCreation
 );
 

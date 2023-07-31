@@ -23,6 +23,26 @@ const verifyUserIdExists = async (
   next();
 };
 
+const verifyEmailExistsRegister = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void | Response> => {
+  const email = req.body.email;
+
+  if (email) {
+    const user = await repositories.user.findOneBy({
+      email: email,
+    });
+
+
+    if (user) return res.status(409).json({ message: "Email already in use" });
+  }
+  
+  next();
+};
+
+
 const verifyEmailExists = async (
   req: Request,
   res: Response,
@@ -39,6 +59,7 @@ const verifyEmailExists = async (
 
     if (user) return res.status(409).json({ message: "Email already in use" });
   }
+  
   next();
 };
 
@@ -66,8 +87,10 @@ const verifyToken = (
 
 const userMiddlewares = {
   verifyEmailExists,
+  verifyEmailExistsRegister,
   verifyUserIdExists,
   verifyToken,
+
 };
 
 export default userMiddlewares;
